@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e9e9e9;
+    margin-bottom: 50px;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-header {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+#formulario {
+    margin-top: 100px;
+    width: 100%;
+}
+
+.controles-form {
+    display: flex;
+}
+
+#lista_anime {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.title_anime {
+    font-size: 14px;
+}
+
+.item_anime {
+    width: 200px;
+    min-height: 400px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+.img_caratula {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    position: relative;
+}
+
+.tipo_show {
+    position: absolute;
+    margin-left: -50px;
+    width: 60px;
+    background-color: #01BCF2;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.ver_detalle {
+    width: 100px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e74c3c;
+    color: #fff;
+    transition: .8s;
+}
+
+.ver_detalle:hover {
+    background-color: #000000;
+}
+
+dialog {
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: none;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+#cerrar_modal {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    border: none;
+    text-align: center;
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.contenedor_data_modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header_modal {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.img_caratula_modal {
+    margin-right: 30px;
+    object-fit: cover;
+}
+
+.detalle_anime_modal {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.sinopsis {
+    font-size: 12px;
+}
+
+.div_generos {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.generos {
+    width: auto;
+    font-size: 12px;
+    margin: 5px;
+    background-color: #e74c3c;
+    padding: 5px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.datos {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #f0f0f0;
+    color: rgb(61, 61, 61);
+}
+
+.item-datos {
+    width: 25%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    border: 1px solid #dbdbdb;
+    word-break: break-all;
+}
+
+@media (max-width:700px) {
+    .datos {
+        flex-direction: column;
+    }
+    .item-datos {
+        width: 100%;
+    }
+}
+
+@media (max-width:700px) {
+    .detalle_anime_modal {
+        flex-direction: column;
+    }
+    .img_caratula_modal {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.trailer_anime {
+    display: flex;
+    justify-content: center;
+}
+
+.frame_video {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: #181818;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 30px;
+    position: fixed;
+    bottom: 0;
+}
