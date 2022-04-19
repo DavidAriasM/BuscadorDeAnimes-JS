@@ -100,10 +100,11 @@ header {
 
 dialog {
     width: 80%;
-    height: 80%;
+    height: auto;
+    max-height: 70%;
     background-color: #fff;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 5%;
     border: none;
     border-radius: 10px;
     overflow-y: auto;
@@ -121,6 +122,7 @@ dialog {
 
 .contenedor_data_modal {
     display: flex;
+    height: auto;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -136,7 +138,7 @@ dialog {
 }
 
 .img_caratula_modal {
-    margin-right: 30px;
+    margin-right: 10px;
     object-fit: cover;
 }
 
@@ -144,12 +146,19 @@ dialog {
     width: 100%;
     height: 40%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 10px;
 }
 
 .sinopsis {
+    max-width: 1000px;
     font-size: 12px;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
 }
 
 .div_generos {
@@ -169,6 +178,13 @@ dialog {
     color: #fff;
 }
 
+.detalle {
+    width: 100%;
+    text-align: start;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
 .datos {
     width: 100%;
     display: flex;
@@ -176,6 +192,9 @@ dialog {
     flex-wrap: wrap;
     background-color: #f0f0f0;
     color: rgb(61, 61, 61);
+    position: absolute;
+    margin-bottom: 1px;
+    bottom: 0;
 }
 
 .item-datos {
@@ -187,16 +206,26 @@ dialog {
     word-break: break-all;
 }
 
-@media (max-width:700px) {
-    .datos {
-        flex-direction: column;
-    }
+@media (max-width:850px) {
     .item-datos {
-        width: 100%;
+        font-size: 12px;
     }
 }
 
 @media (max-width:700px) {
+    dialog {
+        max-height: 80%;
+    }
+    .datos {
+        flex-direction: column;
+        position: relative;
+    }
+    .item-datos {
+        width: 100%;
+    }
+    .detalle {
+        font-size: 14px;
+    }
     .detalle_anime_modal {
         flex-direction: column;
     }

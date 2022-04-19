@@ -10,7 +10,10 @@ function consultaApi(event) {
     try {
         fetch(`${url_api_base}?q=${inputBuscador.value}`)
             .then(response => response.json())
-            .then(data => desplegarData(data.data))
+            .then(data => {
+                console.log(data);
+                desplegarData(data.data);
+            })
     } catch (error) {
         console.warn(error);
     }
@@ -38,17 +41,26 @@ function desplegarData(data) {
                     <div>
                         <p class="sinopsis"><strong>Sinópsis:</strong> <br>${ data[i].synopsis }</p>
                         <div class="div_generos"> ${ buscarGeneros(data[i].genres) } </div>
+                        <div class="detalle">
+                            <div>Año: ${ data[i].year}</div>
+                            <div>Edad: ${ data[i].rating}</div>
+                            <div>Tipo: ${ data[i].type}</div>
+                            <div>Duración por capítulo: ${ duracion(data[i].duration) }</div>
+                            <div>Estado: ${ data[i].status}</div>
+                            <div>Demografía: ${ validarDemografiaTipo(data[i].demographics[0])} - ${ validarDemografiaNombre(data[i].demographics[0]) }</div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="datos">
                         <div class="item-datos">Estudio: <strong>${ validarStudio(data[i].studios[0]) }</strong></div>
                         <div class="item-datos">Puntaje: <strong>${ data[i].score }</strong></div>
                         <div class="item-datos">Episodios: <strong>${ validarEpisodios(data[i].episodes) }</strong></div>
                         <div class="item-datos">Valoraciones:<strong> ${ data[i].scored_by }</strong></div>
                 </div>
-                <div class="trailer_anime">
-                <!--<iframe width="100%" src="http://www.youtube.com/embed/${ data[i].trailer.youtube_id }?enablejsapi=1&origin=${ data[i].trailer.url!==null }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-                </div>
+                <!--<div class="trailer_anime">
+                <iframe width="100%" src="http://www.youtube.com/embed/${ data[i].trailer.youtube_id }?enablejsapi=1&origin=${ data[i].trailer.url!==null }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>-->
             </div>
         </dialog>
         `;
@@ -72,5 +84,7 @@ function buscarGeneros(data) {
 }
 
 validarStudio = (data) => data !== undefined ? data.name : 'Sin Información'
-
-validarEpisodios = (data) => data !== null ? data : 'sin info'
+validarEpisodios = (data) => data !== null ? data : 'sin información'
+validarDemografiaTipo = (data) => data !== undefined ? data.type : 'sin información'
+validarDemografiaNombre = (data) => data !== undefined ? data.name : 'sin información'
+duracion = (data) => data != null ? data.split('').splice(0, 6).join('') : 'sin información'
